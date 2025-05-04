@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Python programlama dili başlangıç ve orta düzey dersleri">
+  <title>Python Dersleri - Yazılım Öğreniyorum</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fadeIn {
+      animation: fadeIn 0.5s ease-out;
+    }
+    pre {
+      background-color: #2d2d2d;
+      color: #f8f8f2;
+      padding: 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-size: 0.95rem;
+    }
+    .quiz-container {
+      display: none;
+      transition: all 0.3s ease;
+    }
+    .quiz-container.active {
+      display: block;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 font-sans text-gray-800">
+  <header class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-12 text-center">
+    <h1 class="text-4xl md:text-5xl font-bold animate-fadeIn">Python Dersleri</h1>
+    <p class="text-lg md:text-xl mt-4 animate-fadeIn">Başlangıç ve Orta Seviye: Python ile Programlamaya Giriş</p>
+    <nav role="navigation" class="mt-8">
+      <ul class="flex flex-wrap justify-center gap-4">
+        <li><a href="index.html" class="bg-indigo-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-900">Ana Sayfa</a></li>
+        <li><a href="html.html" class="bg-indigo-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-900">HTML</a></li>
+        <li><a href="java.html" class="bg-indigo-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-900">Java</a></li>
+        <li><a href="css.html" class="bg-indigo-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-900">CSS</a></li>
+        <li><a href="csharp.html" class="bg-indigo-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-900">C#</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="max-w-4xl mx-auto py-12 px-4">
+    <!-- Başlangıç Seviyesi Konular -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">Başlangıç Seviyesi Konular</h2>
+      <p class="text-lg mb-4">
+        Bu bölümde, Python programlama dilinin temellerini öğreneceksiniz.
+      </p>
+    </section>
+
+    <!-- 1. Python'a Giriş -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">1. Python'a Giriş</h2>
+      <p class="text-lg mb-4">
+        Python, okunabilir ve çok yönlü bir programlama dilidir. İlk programınızı yazmak için <code>print</code> kullanılır.
+      </p>
+      <pre><code># Merhaba Dünya
+print("Merhaba Dünya!")</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>print</code>: Ekrana çıktı yazar.</li>
+          <li><code>#</code>: Yorum satırı ekler.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-python-1')">Quiz'i Aç</button>
+      <div id="quiz-python-1" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Ekrana çıktı yazmak için hangi fonksiyon kullanılır?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-python-1" value="a"> input()</label><br>
+          <label><input type="radio" name="quiz-python-1" value="b"> print()</label><br>
+          <label><input type="radio" name="quiz-python-1" value="c"> write()</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-python-1', 'b', 'Doğru! print() ekrana çıktı yazar.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 2. Değişkenler ve Veri Türleri -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">2. Değişkenler ve Veri Türleri</h2>
+      <p class="text-lg mb-4">
+        Değişkenler, veri saklamak için kullanılır. Python’da veri türleri: <code>int</code>, <code>str</code>, <code>float</code>.
+      </p>
+      <pre><code>isim = "Ahmet"  # str
+yas = 25        # int
+boy = 1.75      # float</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>=</code>: Değer atar.</li>
+          <li><code>type()</code>: Veri türünü döndürür.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-python-2')">Quiz'i Aç</button>
+      <div id="quiz-python-2" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Metin verisi için hangi veri türü kullanılır?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-python-2" value="a"> int</label><br>
+          <label><input type="radio" name="quiz-python-2" value="b"> str</label><br>
+          <label><input type="radio" name="quiz-python-2" value="c"> float</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-python-2', 'b', 'Doğru! str metin verisi için kullanılır.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 3. Operatörler -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">3. Operatörler</h2>
+      <p class="text-lg mb-4">
+        Operatörler, matematiksel ve mantıksal işlemler için kullanılır: <code>+</code>, <code>==</code>, <code>and</code>.
+      </p>
+      <pre><code>a = 5 + 3  # 8
+b = a == 8  # True</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>+</code>: Toplama veya string birleştirme.</li>
+          <li><code>==</code>: Eşitlik kontrolü.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-python-3')">Quiz'i Aç</button>
+      <div id="quiz-python-3" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Eşitlik kontrolü için hangi operatör kullanılır?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-python-3" value="a"> =</label><br>
+          <label><input type="radio" name="quiz-python-3" value="b"> ==</label><br>
+          <label><input type="radio" name="quiz-python-3" value="c"> !=</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-python-3', 'b', 'Doğru! == eşitlik kontrolü yapar.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 4. Koşullu İfadeler -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">4. Koşullu İfadeler</h2>
+      <p class="text-lg mb-4">
+        <code>if</code>, <code>else</code> ile koşullu işlemler yapılır.
+      </p>
+      <pre><code>yas = 18
+if yas >= 18:
+    print("Yetişkin")
+else:
+    print("Çocuk")</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>if</code>: Koşulu kontrol eder.</li>
+          <li><code>else</code>: Alternatif durum.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-python-4')">Quiz'i Aç</button>
+      <div id="quiz-python-4" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Koşullu ifade için hangi anahtar kelime kullanılır?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-python-4" value="a"> for</label><br>
+          <label><input type="radio" name="quiz-python-4" value="b"> if</label><br>
+          <label><input type="radio" name="quiz-python-4" value="c"> while</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-python-4', 'b', 'Doğru! if koşullu ifade için kullanılır.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 5. Döngüler -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">5. Döngüler</h2>
+      <p class="text-lg mb-4">
+        <code>for</code> ve <code>while</code> döngüleri tekrarlı işlemleri yapar.
+      </p>
+      <pre><code>for i in range(3):
+    print(i)  # 0, 1, 2</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>for</code>: Belirli bir aralıkta döner.</li>
+          <li><code>while</code>: Koşul doğru olduğu sürece döner.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-python-5')">Quiz'i Aç</button>
+      <div id="quiz-python-5" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Belirli bir aralıkta döngü için hangi anahtar kelime kullanılır?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-python-5" value="a"> while</label><br>
+          <label><input type="radio" name="quiz-python-5" value="b"> for</label><br>
+          <label><input type="radio" name="quiz-python-5" value="c"> if</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-python-5', 'b', 'Doğru! for belirli bir aralıkta döngü yapar.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 6. Listeler -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">6. Listeler</h2>
+      <p class="text-lg mb-4">
+        Listeler, birden fazla veriyi saklar. Değiştirilebilir (mutable).
+      </p>
+      <pre><code>liste = [1, 2, 3]
+liste.append(4)  # [1, 2, 3, 4]</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>append</code>: Listeye eleman ekler.</li>
+          <li><code>[index]</code>: Elemana erişir.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-python-6')">Quiz'i Aç</button>
+      <div id="quiz-python-6" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Listeye eleman eklemek için hangi metot kullanılır?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-python-6" value="a"> add()</label><br>
+          <label><input type="radio" name="quiz-python-6" value="b"> append()</label><br>
+          <label><input type="radio" name="quiz-python-6" value="c"> insert()</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-python-6', 'b', 'Doğru! append() listeye eleman ekler.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 7. Tuple ve Set -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">7. Tuple ve Set</h2>
+      <p class="text-lg mb-4">
+        Tuple değiştirilemez, set tekrar eden eleman içermez.
+      </p>
+      <pre><code>tpl = (1, 2, 3)
+st = {1, 2, 2}  # {1, 2}</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>tuple</code>: Sabit veri saklar.</li>
+          <li><code>set</code>: Benzersiz elemanlar saklar.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-python-7')">Quiz'i Aç</button>
+      <div id="quiz-python-7" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Benzersiz elemanlar için hangi veri yapısı kullanılır?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-python-7" value="a"> list</label><br>
+          <label><input type="radio" name="quiz-python-7" value="b"> set</label><br>
+          <label><input type="radio" name="quiz-python-7" value="c"> tuple</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-python-7', 'b', 'Doğru! set benzersiz elemanlar saklar.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 8. Sözlükler -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">8. Sözlükler</h2>
+      <p class="text-lg mb-4">
+        Sözlükler, anahtar-değer çiftleri saklar.
+      </p>
+      <pre><code>sozluk = {"isim": "Ahmet", "yas": 25}
+print(sozluk["isim"])  # Ahmet</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>[]</code>: Anahtarla değere erişir.</li>
+          <li><code>dict</code>: Sözlük oluşturur.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-python-8')">Quiz'i Aç</button>
+      <div id="quiz-python-8" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Sözlükte değere erişmek için ne kullanılır?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-python-8" value="a"> ()</label><br>
+          <label><input type="radio" name="quiz-python-8" value="b"> []</label><br>
+          <label><input type="radio" name="quiz-python-8" value="c"> {}</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-python-8', 'b', 'Doğru! [] anahtarla değere erişir.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 9. Fonksiyonlar -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">9. Fonksiyonlar</h2>
+      <p class="text-lg mb-4">
+        Fonksiyonlar, tekrar kullanılabilir kod bloklarıdır.
+      </p>
+      <pre><code>def topla(a, b):
+    return a + b
+print(topla(3, 4))  # 7</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>def</code>: Fonksiyon tanımlar.</li>
+          <li><code>return</code>: Değer döndürür.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-python-9')">Quiz'i Aç</button>
+      <div id="quiz-python-9" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Fonksiyon tanımlamak için hangi anahtar kelime kullanılır?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-python-9" value="a"> return</label><br>
+          <label><input type="radio" name="quiz-python-9" value="b"> def</label><br>
+          <label><input type="radio" name="quiz-python-9" value="c"> function</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-python-9', 'b', 'Doğru! def fonksiyon tanımlar.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 10. String Metotları -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">10. String Metotları</h2>
+      <p class="text-lg mb-4">
+        String’ler üzerinde işlem yapan metotlari: <code>upper</code>, <code>split</code>.
+      </p>
+      <pre><code>metin = "Merhaba Dünya"
+print(metin.upper())  # MERHABA DÜNYA</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>upper</code>: Büyük harfe çevirir.</li>
+          <li><code>split</code>: String’i böler.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-python-10')">Quiz'i Aç</button>
+      <div id="quiz-python-10" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: String’i büyük harfe çeviren metot nedir?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-python-10" value="a"> lower()</label><br>
+          <label><input type="radio" name="quiz-python-10" value="b"> upper()</label><br>
+          <label><input type="radio" name="quiz-python-10" value="c"> capitalize()</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-python-10', 'b', 'Doğru! upper() string’i büyük harfe çevirir.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 11. Hata Yönetimi -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">11. Hata Yönetimi</h2>
+      <p class="text-lg mb-4">
+        <code>try-except</code> ile hatalar yakalanır.
+      </p>
+      <pre><code>try:
+    sayi = int("abc")
+except ValueError:
+    print("Geçersiz sayı")</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>try</code>: Hata olabilecek kodu çalıştırır.</li>
+          <li><code>except</code>: Hata yakalar.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-python-11')">Quiz'i Aç</button>
+      <div id="quiz-python-11" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Hataları yakalamak için hangi yapı kullanılır?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-python-11" value="a"> if-else</label><br>
+          <label><input type="radio" name="quiz-python-11" value="b"> try-except</label><br>
+          <label><input type="radio" name="quiz-python-11" value="c"> for</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-python-11', 'b', 'Doğru! try-except hataları yakalar.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 12. Dosya İşlemleri -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">12. Dosya İşlemleri</h2>
+      <p class="text-lg mb-4">
+        Dosyaları okumak ve yazmak için <code>open</code> kullanılır.
+      </p>
+      <pre><code>with open("dosya.txt", "w") as dosya:
+    dosya.write("Merhaba")</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>open</code>: Dosya açar.</li>
+          <li><code>"w"</code>: Yazma modu.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-python-12')">Quiz'i Aç</button>
+      <div id="quiz-python-12" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Dosya yazma modu için hangi parametre kullanılır?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-python-12" value="a"> r</label><br>
+          <label><input type="radio" name="quiz-python-12" value="b"> w</label><br>
+          <label><input type="radio" name="quiz-python-12" value="c"> a</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-python-12', 'b', 'Doğru! w yazma modudur.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- Orta Düzey Konular -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">Orta Düzey Konular</h2>
+      <p class="text-lg mb-4">
+        Bu bölümde, Python’un ileri düzey özelliklerini keşfedeceksiniz.
+      </p>
+    </section>
+
+    <!-- 13. Modüller ve Paketler -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">13. Modüller ve Paketler</h2>
+      <p class="text-lg mb-4">
+        Modüller, kodu organize eder. <code>import</code> ile kullanılır.
+      </p>
+      <pre><code>import math
+print(math.sqrt(16))  # 4.0</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>import</code>: Modül çağırır.</li>
+          <li><code>math</code>: Matematiksel işlemler sağlar.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-python-13')">Quiz'i Aç</button>
+      <div id="quiz-python-13" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Modül çağırmak için hangi anahtar kelime kullanılır?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-python-13" value="a"> include</label><br>
+          <label><input type="radio" name="quiz-python-13" value="b"> import</label><br>
+          <label><input type="radio" name="quiz-python-13" value="c"> require</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-python-13', 'b', 'Doğru! import modül çağırır.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 14. Nesne Yönelimli Programlama -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">14. Nesne Yönelimli Programlama</h2>
+      <p class="text-lg mb-4">
+        Sınıflar ve nesneler, veri ve işlevselliği birleştirir.
+      </p>
+      <pre><code>class Kisi:
+    def __init__(self, isim):
+        self.isim = isim
+kisi = Kisi("Ahmet")
+print(kisi.isim)  # Ahmet</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>class</code>: Sınıf tanımlar.</li>
+          <li><code>__init__</code>: Kurucu metot.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-python-14')">Quiz'i Aç</button>
+      <div id="quiz-python-14" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Sınıf tanımlamak için hangi anahtar kelime kullanılır?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-python-14" value="a"> def</label><br>
+          <label><input type="radio" name="quiz-python-14" value="b"> class</label><br>
+          <label><input type="radio" name="quiz-python-14" value="c"> struct</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-python-14', 'b', 'Doğru! class sınıf tanımlar.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 15. Lambda Fonksiyonları -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">15. Lambda Fonksiyonları</h2>
+      <p class="text-lg mb-4">
+        Lambda, tek satırlık anonim fonksiyonlar oluşturur.
+      </p>
+      <pre><code>topla = lambda x, y: x + y
+print(topla(3, 4))  # 7</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>lambda</code>: Anonim fonksiyon tanımlar.</li>
+          <li>Kısa ve geçici fonksiyonlar için kullanılır.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-python-15')">Quiz'i Aç</button>
+      <div id="quiz-python-15" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Anonim fonksiyon tanımlamak için hangi anahtar kelime kullanılır?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-python-15" value="a"> def</label><br>
+          <label><input type="radio" name="quiz-python-15" value="b"> lambda</label><br>
+          <label><input type="radio" name="quiz-python-15" value="c"> func</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-python-15', 'b', 'Doğru! lambda anonim fonksiyon tanımlar.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 16. List Comprehension -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">16. List Comprehension</h2>
+      <p class="text-lg mb-4">
+        List comprehension, kısa yoldan liste oluşturur.
+      </p>
+      <pre><code>kareler = [x**2 for x in range(5)]
+print(kareler)  # [0, 1, 4, 9, 16]</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li>Kompakt döngü yerine geçer.</li>
+          <li>Hızlı ve okunabilir.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-python-16')">Quiz'i Aç</button>
+      <div id="quiz-python-16" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: List comprehension hangi amaçla kullanılır?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-python-16" value="a"> Dosya okuma</label><br>
+          <label><input type="radio" name="quiz-python-16" value="b"> Liste oluşturma</label><br>
+          <label><input type="radio" name="quiz-python-16" value="c"> Hata yakalama</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-python-16', 'b', 'Doğru! List comprehension liste oluşturur.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 17. Veritabanı İşlemleri -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">17. Veritabanı İşlemleri</h2>
+      <p class="text-lg mb-4">
+        <code>sqlite3</code> ile veritabanı işlemleri yapılır.
+      </p>
+      <pre><code>import sqlite3
+conn = sqlite3.connect("ornek.db")
+conn.close()</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>sqlite3</code>: Hafif veritabanı sağlar.</li>
+          <li><code>connect</code>: Veritabanına bağlanır.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-python-17')">Quiz'i Aç</button>
+      <div id="quiz-python-17" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: SQLite veritabanına bağlanmak için hangi modül kullanılır?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-python-17" value="a"> mysql</label><br>
+          <label><input type="radio" name="quiz-python-17" value="b"> sqlite3</label><br>
+          <label><input type="radio" name="quiz-python-17" value="c"> db</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-python-17', 'b', 'Doğru! sqlite3 veritabanına bağlanır.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-gray-800 text-white text-center py-6">
+    <p>© 2025 Yazılım Öğreniyorum - Bilişim Haftası İçin Hazırlandı</p>
+  </footer>
+
+  <script>
+    function toggleQuiz(quizId) {
+      const quiz = document.getElementById(quizId);
+      if (quiz) {
+        quiz.classList.toggle('active');
+      } else {
+        console.error('Quiz ID bulunamadı: ' + quizId);
+      }
+    }
+
+    function checkQuiz(quizId, correctAnswer, message) {
+      const quiz = document.getElementById(quizId);
+      if (!quiz) {
+        console.error('Quiz ID bulunamadı: ' + quizId);
+        alert('Hata: Quiz bulunamadı.');
+        return;
+      }
+      const selected = quiz.querySelector(`input[name="${quizId}"]:checked`);
+      if (selected) {
+        if (selected.value === correctAnswer) {
+          alert(message);
+        } else {
+          alert('Yanlış! Lütfen tekrar deneyin.');
+        }
+      } else {
+        alert('Lütfen bir seçenek seçin.');
+      }
+    }
+
+    document.querySelectorAll('nav a').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.location.href = this.getAttribute('href');
+      });
+    });
+  </script>
+</body>
+</html>

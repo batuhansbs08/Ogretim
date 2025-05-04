@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="C# başlangıç ve orta düzey dersleri">
+  <title>C# Dersleri - Yazılım Öğreniyorum</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fadeIn {
+      animation: fadeIn 0.5s ease-out;
+    }
+    pre {
+      background-color: #2d2d2d;
+      color: #f8f8f2;
+      padding: 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-size: 0.95rem;
+    }
+    .quiz-container {
+      display: none;
+      transition: all 0.3s ease;
+    }
+    .quiz-container.active {
+      display: block;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 font-sans text-gray-800">
+  <header class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-12 text-center">
+    <h1 class="text-4xl md:text-5xl font-bold animate-fadeIn">C# Dersleri</h1>
+    <p class="text-lg md:text-xl mt-4 animate-fadeIn">Başlangıç ve Orta Seviye: C# ile Programlamaya Giriş</p>
+    <nav role="navigation" class="mt-8">
+      <ul class="flex flex-wrap justify-center gap-4">
+        <li><a href="index.html" class="bg-indigo-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-900">Ana Sayfa</a></li>
+        <li><a href="html.html" class="bg-indigo-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-900">HTML</a></li>
+        <li><a href="python.html" class="bg-indigo-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-900">Python</a></li>
+        <li><a href="java.html" class="bg-indigo-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-900">Java</a></li>
+        <li><a href="css.html" class="bg-indigo-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-900">CSS</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="max-w-4xl mx-auto py-12 px-4">
+    <!-- Başlangıç Seviyesi Konular -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">Başlangıç Seviyesi Konular</h2>
+      <p class="text-lg mb-4">
+        Bu bölümde, C# programlama dilinin temellerini öğreneceksiniz.
+      </p>
+    </section>
+
+    <!-- 1. C#'a Giriş -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">1. C#'a Giriş</h2>
+      <p class="text-lg mb-4">
+        C#, güçlü ve modern bir programlama dilidir. İlk program <code>Main</code> metoduyla başlar.
+      </p>
+      <pre><code>using System;
+class Program {
+    static void Main() {
+        Console.WriteLine("Merhaba Dünya!");
+    }
+}</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>Main</code>: Programın giriş noktası.</li>
+          <li><code>Console.WriteLine</code>: Ekrana çıktı yazar.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-csharp-1')">Quiz'i Aç</button>
+      <div id="quiz-csharp-1" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: C#’ta programın giriş noktası nedir?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-csharp-1" value="a"> Start()</label><br>
+          <label><input type="radio" name="quiz-csharp-1" value="b"> Main()</label><br>
+          <label><input type="radio" name="quiz-csharp-1" value="c"> Run()</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-csharp-1', 'b', 'Doğru! Main() giriş noktasıdır.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 2. Değişkenler ve Veri Türleri -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">2. Değişkenler ve Veri Türleri</h2>
+      <p class="text-lg mb-4">
+        Değişkenler, veri saklar. Veri türleri: <code>int</code>, <code>string</code>, <code>double</code>.
+      </p>
+      <pre><code>int yas = 25;
+string isim = "Ahmet";
+double boy = 1.75;</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>int</code>: Tam sayı.</li>
+          <li><code>string</code>: Metin.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-csharp-2')">Quiz'i Aç</button>
+      <div id="quiz-csharp-2" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Metin verisi için hangi veri türü kullanılır?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-csharp-2" value="a"> int</label><br>
+          <label><input type="radio" name="quiz-csharp-2" value="b"> string</label><br>
+          <label><input type="radio" name="quiz-csharp-2" value="c"> double</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-csharp-2', 'b', 'Doğru! string metin verisi için kullanılır.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 3. Operatörler -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">3. Operatörler</h2>
+      <p class="text-lg mb-4">
+        Operatörler, işlemler yapar: <code>+</code>, <code>==</code>, <code>&&</code>.
+      </p>
+      <pre><code>int a = 5 + 3;
+bool b = a == 8;</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>+</code>: Toplama.</li>
+          <li><code>==</code>: Eşitlik kontrolü.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-csharp-3')">Quiz'i Aç</button>
+      <div id="quiz-csharp-3" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Eşitlik kontrolü için hangi operatör kullanılır?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-csharp-3" value="a"> =</label><br>
+          <label><input type="radio" name="quiz-csharp-3" value="b"> ==</label><br>
+          <label><input type="radio" name="quiz-csharp-3" value="c"> !=</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-csharp-3', 'b', 'Doğru! == eşitlik kontrolü yapar.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 4. Koşullu İfadeler -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">4. Koşullu İfadeler</h2>
+      <p class="text-lg mb-4">
+        <code>if</code>, <code>else</code>, <code>switch</code> ile koşullar kontrol edilir.
+      </p>
+      <pre><code>int yas = 18;
+if (yas >= 18) {
+    Console.WriteLine("Yetişkin");
+} else {
+    Console.WriteLine("Çocuk");
+}</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>if</code>: Koşulu kontrol eder.</li>
+          <li><code>else</code>: Alternatif durum.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-csharp-4')">Quiz'i Aç</button>
+      <div id="quiz-csharp-4" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Koşullu ifade için hangi anahtar kelime kullanılır?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-csharp-4" value="a"> for</label><br>
+          <label><input type="radio" name="quiz-csharp-4" value="b"> if</label><br>
+          <label><input type="radio" name="quiz-csharp-4" value="c"> while</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-csharp-4', 'b', 'Doğru! if koşullu ifade için kullanılır.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 5. Döngüler -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">5. Döngüler</h2>
+      <p class="text-lg mb-4">
+        <code>for</code>, <code>while</code> döngüleri tekrarlı işlemler yapar.
+      </p>
+      <pre><code>for (int i = 0; i < 3; i++) {
+    Console.WriteLine(i);
+}</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>for</code>: Belirli bir sayıda döner.</li>
+          <li><code>while</code>: Koşul doğru olduğu sürece döner.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-csharp-5')">Quiz'i Aç</button>
+      <div id="quiz-csharp-5" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Belirli bir sayıda döngü için hangi anahtar kelime kullanılır?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-csharp-5" value="a"> while</label><br>
+          <label><input type="radio" name="quiz-csharp-5" value="b"> for</label><br>
+          <label><input type="radio" name="quiz-csharp-5" value="c"> if</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-csharp-5', 'b', 'Doğru! for belirli bir sayıda döngü yapar.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 6. Diziler -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">6. Diziler</h2>
+      <p class="text-lg mb-4">
+        Diziler, birden fazla veriyi saklar.
+      </p>
+      <pre><code>int[] sayilar = {1, 2, 3};
+Console.WriteLine(sayilar[0]); // 1</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>[]</code>: Dizi elemanına erişir.</li>
+          <li>Sabit uzunluklu veri saklar.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-csharp-6')">Quiz'i Aç</button>
+      <div id="quiz-csharp-6" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Dizi elemanına erişmek için ne kullanılır?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-csharp-6" value="a"> ()</label><br>
+          <label><input type="radio" name="quiz-csharp-6" value="b"> []</label><br>
+          <label><input type="radio" name="quiz-csharp-6" value="c"> {}</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-csharp-6', 'b', 'Doğru! [] dizi elemanına erişir.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 7. String Sınıfı -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">7. String Sınıfı</h2>
+      <p class="text-lg mb-4">
+        <code>string</code> sınıfı, metin işlemleri için metotlar sunar.
+      </p>
+      <pre><code>string metin = "Merhaba";
+Console.WriteLine(metin.ToUpper()); // MERHABA</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>ToUpper</code>: Büyük harfe çevirir.</li>
+          <li><code>Length</code>: Uzunluğu döndürür.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-csharp-7')">Quiz'i Aç</button>
+      <div id="quiz-csharp-7" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Metni büyük harfe çeviren metot nedir?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-csharp-7" value="a"> ToLower()</label><br>
+          <label><input type="radio" name="quiz-csharp-7" value="b"> ToUpper()</label><br>
+          <label><input type="radio" name="quiz-csharp-7" value="c"> Capitalize()</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-csharp-7', 'b', 'Doğru! ToUpper() metni büyük harfe çevirir.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 8. Metotlar -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">8. Metotlar</h2>
+      <p class="text-lg mb-4">
+        Metotlar, tekrar kullanılabilir kod bloklarıdır.
+      </p>
+      <pre><code>public int Topla(int a, int b) {
+    return a + b;
+}</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>return</code>: Değer döndürür.</li>
+          <li>Parametreler isteğe bağlıdır.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-csharp-8')">Quiz'i Aç</button>
+      <div id="quiz-csharp-8" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Metottan değer döndürmek için hangi anahtar kelime kullanılır?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-csharp-8" value="a"> void</label><br>
+          <label><input type="radio" name="quiz-csharp-8" value="b"> return</label><br>
+          <label><input type="radio" name="quiz-csharp-8" value="c"> public</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-csharp-8', 'b', 'Doğru! return değer döndürür.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 9. Sınıflar ve Nesneler -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">9. Sınıflar ve Nesneler</h2>
+      <p class="text-lg mb-4">
+        Sınıflar, nesnelerin şablonlarıdır.
+      </p>
+      <pre><code>class Kisi {
+    public string Isim;
+    public Kisi(string isim) {
+        Isim = isim;
+    }
+}
+Kisi kisi = new Kisi("Ahmet");</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>class</code>: Sınıf tanımlar.</li>
+          <li><code>new</code>: Nesne oluşturur.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-csharp-9')">Quiz'i Aç</button>
+      <div id="quiz-csharp-9" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Nesne oluşturmak için hangi anahtar kelime kullanılır?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-csharp-9" value="a"> class</label><br>
+          <label><input type="radio" name="quiz-csharp-9" value="b"> new</label><br>
+          <label><input type="radio" name="quiz-csharp-9" value="c"> this</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-csharp-9', 'b', 'Doğru! new nesne oluşturur.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 10. Kurucular -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">10. Kurucular</h2>
+      <p class="text-lg mb-4">
+        Kurucular, nesne oluşturulurken çağrılır.
+      </p>
+      <pre><code>class Kisi {
+    public string Isim;
+    public Kisi(string isim) {
+        Isim = isim;
+    }
+}</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li>Kurucu, sınıf adıyla aynıdır.</li>
+          <li><code>this</code>: Nesneye işaret eder.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-csharp-10')">Quiz'i Aç</button>
+      <div id="quiz-csharp-10" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Nesneye işaret eden anahtar kelime nedir?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-csharp-10" value="a"> base</label><br>
+          <label><input type="radio" name="quiz-csharp-10" value="b"> this</label><br>
+          <label><input type="radio" name="quiz-csharp-10" value="c"> new</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-csharp-10', 'b', 'Doğru! this nesneye işaret eder.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 11. Erişim Belirleyicileri -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">11. Erişim Belirleyicileri</h2>
+      <p class="text-lg mb-4">
+        <code>public</code>, <code>private</code> erişimi kontrol eder.
+      </p>
+      <pre><code>class Kisi {
+    private string isim;
+    public string GetIsim() {
+        return isim;
+    }
+}</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>private</code>: Sadece sınıf içinden erişilir.</li>
+          <li><code>public</code>: Her yerden erişilir.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-csharp-11')">Quiz'i Aç</button>
+      <div id="quiz-csharp-11" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Sadece sınıf içinden erişilen belirleyici nedir?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-csharp-11" value="a"> public</label><br>
+          <label><input type="radio" name="quiz-csharp-11" value="b"> private</label><br>
+          <label><input type="radio" name="quiz-csharp-11" value="c"> protected</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-csharp-11', 'b', 'Doğru! private sadece sınıf içinden erişilir.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 12. Ad Alanları -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">12. Ad Alanları</h2>
+      <p class="text-lg mb-4">
+        Ad alanları, kodları organize eder.
+      </p>
+      <pre><code>using System;
+namespace Ornek {
+    class Program {}
+}</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>namespace</code>: Ad alanı tanımlar.</li>
+          <li><code>using</code>: Dış ad alanlarını çağırır.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-csharp-12')">Quiz'i Aç</button>
+      <div id="quiz-csharp-12" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Dış ad alanlarını çağırmak için hangi anahtar kelime kullanılır?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-csharp-12" value="a"> namespace</label><br>
+          <label><input type="radio" name="quiz-csharp-12" value="b"> using</label><br>
+          <label><input type="radio" name="quiz-csharp-12" value="c"> class</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-csharp-12', 'b', 'Doğru! using dış ad alanlarını çağırır.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- Orta Düzey Konular -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">Orta Düzey Konular</h2>
+      <p class="text-lg mb-4">
+        Bu bölümde, C#’ın ileri düzey özelliklerini keşfedeceksiniz.
+      </p>
+    </section>
+
+    <!-- 13. Kalıtım -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">13. Kalıtım</h2>
+      <p class="text-lg mb-4">
+        Kalıtım, sınıfların özelliklerini miras almasını sağlar.
+      </p>
+      <pre><code>class Hayvan {
+    public virtual void Ses() {}
+}
+class Kopek : Hayvan {
+    public override void Ses() {
+        Console.WriteLine("Hav!");
+    }
+}</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>:</code>: Kalıtımı sağlar.</li>
+          <li><code>virtual</code>, <code>override</code>: Metot geçersiz kılma.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-csharp-13')">Quiz'i Aç</button>
+      <div id="quiz-csharp-13" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Kalıtım için hangi sembol kullanılır?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-csharp-13" value="a"> .</label><br>
+          <label><input type="radio" name="quiz-csharp-13" value="b"> :</label><br>
+          <label><input type="radio" name="quiz-csharp-13" value="c"> =></label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-csharp-13', 'b', 'Doğru! : kalıtımı sağlar.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 14. Polimorfizm -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">14. Polimorfizm</h2>
+      <p class="text-lg mb-4">
+        Polimorfizm, metotların farklı şekillerde çalışmasını sağlar.
+      </p>
+      <pre><code>class Hayvan {
+    public virtual void Ses() {}
+}
+class Kopek : Hayvan {
+    public override void Ses() {
+        Console.WriteLine("Hav!");
+    }
+}</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li>Metot overriding: Aynı isim, farklı davranış.</li>
+          <li>Metot overloading: Aynı isim, farklı parametreler.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-csharp-14')">Quiz'i Aç</button>
+      <div id="quiz-csharp-14" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Aynı isimde farklı parametrelerle metot tanımlama nedir?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-csharp-14" value="a"> Overriding</label><br>
+          <label><input type="radio" name="quiz-csharp-14" value="b"> Overloading</label><br>
+          <label><input type="radio" name="quiz-csharp-14" value="c"> Inheritance</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-csharp-14', 'b', 'Doğru! Overloading aynı isimde farklı parametrelerle metot tanımlamadır.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 15. Arayüzler -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">15. Arayüzler</h2>
+      <p class="text-lg mb-4">
+        Arayüzler, sınıfların uygulaması gereken metotları tanımlar.
+      </p>
+      <pre><code>interface IHareket {
+    void HareketEt();
+}
+class Araba : IHareket {
+    public void HareketEt() {
+        Console.WriteLine("Araba sürüyor.");
+    }
+}</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>interface</code>: Metot şablonları tanımlar.</li>
+          <li>Sınıflar, arayüzleri uygular.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-csharp-15')">Quiz'i Aç</button>
+      <div id="quiz-csharp-15" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Metot şablonları tanımlamak için ne kullanılır?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-csharp-15" value="a"> class</label><br>
+          <label><input type="radio" name="quiz-csharp-15" value="b"> interface</label><br>
+          <label><input type="radio" name="quiz-csharp-15" value="c"> struct</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-csharp-15', 'b', 'Doğru! interface metot şablonları tanımlar.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 16. Genel Tipler -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">16. Genel Tipler</h2>
+      <p class="text-lg mb-4">
+        Genel tipler, esnek ve yeniden kullanılabilir kod sağlar.
+      </p>
+      <pre><code>class Depo<T> {
+    public T Veri;
+}
+Depo<int> depo = new Depo<int>();
+depo.Veri = 42;</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>T</code>: Genel tip parametresi.</li>
+          <li>Listeler, sözlükler gibi kullanılır.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-csharp-16')">Quiz'i Aç</button>
+      <div id="quiz-csharp-16" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Genel tip parametresi nasıl belirtilir?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-csharp-16" value="a"> []</label><br>
+          <label><input type="radio" name="quiz-csharp-16" value="b"> &lt;&gt;</label><br>
+          <label><input type="radio" name="quiz-csharp-16" value="c"> ()</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-csharp-16', 'b', 'Doğru! &lt;&gt; genel tip parametresi için kullanılır.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 17. LINQ -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">17. LINQ</h2>
+      <p class="text-lg mb-4">
+        LINQ, veriler üzerinde sorgular yapmayı sağlar.
+      </p>
+      <pre><code>using System.Linq;
+int[] sayilar = {1, 2, 3, 4};
+var ciftler = sayilar.Where(x => x % 2 == 0);</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>Where</code>: Koşula göre filtreler.</li>
+          <li><code>System.Linq</code>: LINQ için gerekli ad alanı.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-csharp-17')">Quiz'i Aç</button>
+      <div id="quiz-csharp-17" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: LINQ için gerekli ad alanı nedir?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-csharp-17" value="a"> System.Collections</label><br>
+          <label><input type="radio" name="quiz-csharp-17" value="b"> System.Linq</label><br>
+          <label><input type="radio" name="quiz-csharp-17" value="c"> System.IO</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-csharp-17', 'b', 'Doğru! System.Linq LINQ için gereklidir.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-gray-800 text-white text-center py-6">
+    <p>© 2025 Yazılım Öğreniyorum - Bilişim Haftası İçin Hazırlandı</p>
+  </footer>
+
+  <script>
+    function toggleQuiz(quizId) {
+      const quiz = document.getElementById(quizId);
+      if (quiz) {
+        quiz.classList.toggle('active');
+      } else {
+        console.error('Quiz ID bulunamadı: ' + quizId);
+      }
+    }
+
+    function checkQuiz(quizId, correctAnswer, message) {
+      const quiz = document.getElementById(quizId);
+      if (!quiz) {
+        console.error('Quiz ID bulunamadı: ' + quizId);
+        alert('Hata: Quiz bulunamadı.');
+        return;
+      }
+      const selected = quiz.querySelector(`input[name="${quizId}"]:checked`);
+      if (selected) {
+        if (selected.value === correctAnswer) {
+          alert(message);
+        } else {
+          alert('Yanlış! Lütfen tekrar deneyin.');
+        }
+      } else {
+        alert('Lütfen bir seçenek seçin.');
+      }
+    }
+
+    document.querySelectorAll('nav a').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.location.href = this.getAttribute('href');
+      });
+    });
+  </script>
+</body>
+</html>

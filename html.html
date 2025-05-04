@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="HTML programlama dili başlangıç ve orta düzey dersleri">
+  <title>HTML Dersleri - Yazılım Öğreniyorum</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fadeIn {
+      animation: fadeIn 0.5s ease-out;
+    }
+    pre {
+      background-color: #2d2d2d;
+      color: #f8f8f2;
+      padding: 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-size: 0.95rem;
+    }
+    .quiz-container {
+      display: none;
+      transition: all 0.3s ease;
+    }
+    .quiz-container.active {
+      display: block;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 font-sans text-gray-800">
+  <header class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-12 text-center">
+    <h1 class="text-4xl md:text-5xl font-bold animate-fadeIn">HTML Dersleri</h1>
+    <p class="text-lg md:text-xl mt-4 animate-fadeIn">Başlangıç ve Orta Seviye: Web Geliştirmeye Derinlemesine Giriş</p>
+    <nav role="navigation" class="mt-8">
+      <ul class="flex flex-wrap justify-center gap-4">
+        <li><a href="index.html" class="bg-indigo-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-900">Ana Sayfa</a></li>
+        <li><a href="python.html" class="bg-indigo-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-900">Python</a></li>
+        <li><a href="java.html" class="bg-indigo-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-900">Java</a></li>
+        <li><a href="css.html" class="bg-indigo-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-900">CSS</a></li>
+        <li><a href="csharp.html" class="bg-indigo-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-900">C#</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="max-w-4xl mx-auto py-12 px-4">
+    <!-- Başlangıç Seviyesi Konular -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">Başlangıç Seviyesi Konular</h2>
+      <p class="text-lg mb-4">
+        Bu bölümde, HTML ile web geliştirme yolculuğunuza başlayacak ve temel yapıları öğreneceksiniz.
+      </p>
+    </section>
+
+    <!-- 1. HTML Temel Yapı -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">1. HTML Temel Yapı</h2>
+      <p class="text-lg mb-4">
+        HTML, web sayfalarının iskeletini oluşturur. Temel yapı <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code> ve <code>&lt;body&gt;</code> etiketlerinden oluşur.
+      </p>
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="tr"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Başlık&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Merhaba Dünya!&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>&lt;!DOCTYPE html&gt;</code>: HTML5 belgesi olduğunu belirtir.</li>
+          <li><code>&lt;html&gt;</code>: Tüm içeriği sarar.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-html-1')">Quiz'i Aç</button>
+      <div id="quiz-html-1" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: HTML5 belgesini tanımlayan ifade nedir?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-html-1" value="a"> &lt;html&gt;</label><br>
+          <label><input type="radio" name="quiz-html-1" value="b"> &lt;!DOCTYPE html&gt;</label><br>
+          <label><input type="radio" name="quiz-html-1" value="c"> &lt;head&gt;</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-html-1', 'b', 'Doğru! &lt;!DOCTYPE html&gt; HTML5 belgesini tanımlar.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 2. Etiketler -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">2. Etiketler</h2>
+      <p class="text-lg mb-4">
+        Etiketler, HTML'nin yapı taşlarıdır. Açılış ve kapanış etiketleri içeriği tanımlar.
+      </p>
+      <pre><code>&lt;p&gt;Bu bir paragraf.&lt;/p&gt;
+&lt;h1&gt;Başlık&lt;/h1&gt;</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>&lt;p&gt;</code>: Paragraf oluşturur.</li>
+          <li><code>&lt;h1&gt;</code>: En büyük başlık etiketi.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-html-2')">Quiz'i Aç</button>
+      <div id="quiz-html-2" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Paragraf oluşturmak için hangi etiket kullanılır?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-html-2" value="a"> &lt;h1&gt;</label><br>
+          <label><input type="radio" name="quiz-html-2" value="b"> &lt;p&gt;</label><br>
+          <label><input type="radio" name="quiz-html-2" value="c"> &lt;div&gt;</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-html-2', 'b', 'Doğru! &lt;p&gt; paragraf oluşturur.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 3. Öznitelikler -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">3. Öznitelikler</h2>
+      <p class="text-lg mb-4">
+        Öznitelikler, etiketlere ek bilgi sağlar. Örneğin, <code>id</code>, <code>class</code>.
+      </p>
+      <pre><code>&lt;div id="ana" class="stil"&gt;İçerik&lt;/div&gt;</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>id</code>: Benzersiz kimlik tanımlar.</li>
+          <li><code>class</code>: Stil veya gruplandırma için kullanılır.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-html-3')">Quiz'i Aç</button>
+      <div id="quiz-html-3" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Benzersiz kimlik tanımlamak için hangi öznitelik kullanılır?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-html-3" value="a"> class</label><br>
+          <label><input type="radio" name="quiz-html-3" value="b"> id</label><br>
+          <label><input type="radio" name="quiz-html-3" value="c"> name</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-html-3', 'b', 'Doğru! id benzersiz kimlik tanımlar.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 4. Bağlantılar -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">4. Bağlantılar</h2>
+      <p class="text-lg mb-4">
+        <code>&lt;a&gt;</code> etiketi, bağlantılar oluşturur. <code>href</code> özniteliği hedefi belirtir.
+      </p>
+      <pre><code>&lt;a href="https://ornek.com"&gt;Tıkla&lt;/a&gt;</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>href</code>: Bağlantının hedef adresi.</li>
+          <li><code>target="_blank"</code>: Yeni sekmede açar.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-html-4')">Quiz'i Aç</button>
+      <div id="quiz-html-4" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Bağlantı oluşturmak için hangi etiket kullanılır?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-html-4" value="a"> &lt;link&gt;</label><br>
+          <label><input type="radio" name="quiz-html-4" value="b"> &lt;a&gt;</label><br>
+          <label><input type="radio" name="quiz-html-4" value="c"> &lt;href&gt;</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-html-4', 'b', 'Doğru! &lt;a&gt; bağlantı oluşturur.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 5. Resimler -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">5. Resimler</h2>
+      <p class="text-lg mb-4">
+        <code>&lt;img&gt;</code> etiketi, resimleri ekler. <code>src</code> ve <code>alt</code> öznitelikleri kullanılır.
+      </p>
+      <pre><code>&lt;img src="resim.jpg" alt="Açıklama"&gt;</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>src</code>: Resmin dosya yolu.</li>
+          <li><code>alt</code>: Resim yüklenmezse gösterilen metin.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-html-5')">Quiz'i Aç</button>
+      <div id="quiz-html-5" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Resim eklemek için hangi etiket kullanılır?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-html-5" value="a"> &lt;image&gt;</label><br>
+          <label><input type="radio" name="quiz-html-5" value="b"> &lt;img&gt;</label><br>
+          <label><input type="radio" name="quiz-html-5" value="c"> &lt;picture&gt;</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-html-5', 'b', 'Doğru! &lt;img&gt; resim ekler.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 6. Listeler -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">6. Listeler</h2>
+      <p class="text-lg mb-4">
+        HTML'de sıralı (<code>&lt;ol&gt;</code>) ve sırasız (<code>&lt;ul&gt;</code>) listeler kullanılır.
+      </p>
+      <pre><code>&lt;ul&gt;
+  &lt;li&gt;Madde 1&lt;/li&gt;
+  &lt;li&gt;Madde 2&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>&lt;ul&gt;</code>: Sırasız liste (noktalı).</li>
+          <li><code>&lt;ol&gt;</code>: Sıralı liste (numaralı).</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-html-6')">Quiz'i Aç</button>
+      <div id="quiz-html-6" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Sırasız liste oluşturmak için hangi etiket kullanılır?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-html-6" value="a"> &lt;ol&gt;</label><br>
+          <label><input type="radio" name="quiz-html-6" value="b"> &lt;ul&gt;</label><br>
+          <label><input type="radio" name="quiz-html-6" value="c"> &lt;li&gt;</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-html-6', 'b', 'Doğru! &lt;ul&gt; sırasız liste oluşturur.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 7. Tablolar -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">7. Tablolar</h2>
+      <p class="text-lg mb-4">
+        <code>&lt;table&gt;</code> etiketi, veri tabloları oluşturur. <code>&lt;tr&gt;</code>, <code>&lt;td&gt;</code>, <code>&lt;th&gt;</code> kullanılır.
+      </p>
+      <pre><code>&lt;table&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Başlık&lt;/th&gt;
+    &lt;td&gt;Veri&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>&lt;tr&gt;</code>: Satır tanımlar.</li>
+          <li><code>&lt;th&gt;</code>: Başlık hücresi.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-html-7')">Quiz'i Aç</button>
+      <div id="quiz-html-7" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Tablo satırı tanımlamak için hangi etiket kullanılır?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-html-7" value="a"> &lt;td&gt;</label><br>
+          <label><input type="radio" name="quiz-html-7" value="b"> &lt;tr&gt;</label><br>
+          <label><input type="radio" name="quiz-html-7" value="c"> &lt;th&gt;</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-html-7', 'b', 'Doğru! &lt;tr&gt; tablo satırı tanımlar.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 8. Formlar -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">8. Formlar</h2>
+      <p class="text-lg mb-4">
+        <code>&lt;form&gt;</code> etiketi, kullanıcı girişi toplar. <code>&lt;input&gt;</code> ve <code>&lt;label&gt;</code> kullanılır.
+      </p>
+      <pre><code>&lt;form&gt;
+  &lt;label for="isim"&gt;İsim:&lt;/label&gt;
+  &lt;input type="text" id="isim"&gt;
+&lt;/form&gt;</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>&lt;input&gt;</code>: Kullanıcı girişi alır.</li>
+          <li><code>&lt;label&gt;</code>: Giriş alanını tanımlar.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-html-8')">Quiz'i Aç</button>
+      <div id="quiz-html-8" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Kullanıcı girişi almak için hangi etiket kullanılır?</p>
+        <div class="space-y-2">
+          <RVlabel><input type="radio" name="quiz-html-8" value="a"> &lt;form&gt;</label><br>
+          <label><input type="radio" name="quiz-html-8" value="b"> &lt;input&gt;</label><br>
+          <label><input type="radio" name="quiz-html-8" value="c"> &lt;label&gt;</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-html-8', 'b', 'Doğru! &lt;input&gt; kullanıcı girişi alır.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 9. Div ve Span -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">9. Div ve Span</h2>
+      <p class="text-lg mb-4">
+        <code>&lt;div&gt;</code> ve <code>&lt;span&gt;</code>, içeriği gruplandırmak için kullanılır.
+      </p>
+      <pre><code>&lt;div&gt;Blok içerik&lt;/div&gt;
+&lt;span&gt;Satır içi içerik&lt;/span&gt;</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>&lt;div&gt;</code>: Blok seviyesinde gruplama.</li>
+          <li><code>&lt;span&gt;</code>: Satır içi gruplama.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-html-9')">Quiz'i Aç</button>
+      <div id="quiz-html-9" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Satır içi gruplama için hangi etiket kullanılır?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-html-9" value="a"> &lt;div&gt;</label><br>
+          <label><input type="radio" name="quiz-html-9" value="b"> &lt;span&gt;</label><br>
+          <label><input type="radio" name="quiz-html-9" value="c"> &lt;section&gt;</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-html-9', 'b', 'Doğru! &lt;span&gt; satır içi gruplama yapar.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 10. Semantik Etiketler -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">10. Semantik Etiketler</h2>
+      <p class="text-lg mb-4">
+        Semantik etiketler, içeriğin anlamını belirtir. Örneğin, <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code>.
+      </p>
+      <pre><code>&lt;header&gt;Site Başlığı&lt;/header&gt;
+&lt;main&gt;Ana İçerik&lt;/main&gt;</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>&lt;header&gt;</code>: Üst bilgi alanı.</li>
+          <li><code>&lt;main&gt;</code>: Ana içerik alanı.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-html-10')">Quiz'i Aç</button>
+      <div id="quiz-html-10" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Ana içerik alanı için hangi etiket kullanılır?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-html-10" value="a"> &lt;header&gt;</label><br>
+          <label><input type="radio" name="quiz-html-10" value="b"> &lt;main&gt;</label><br>
+          <label><input type="radio" name="quiz-html-10" value="c"> &lt;footer&gt;</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-html-10', 'b', 'Doğru! &lt;main&gt; ana içerik alanıdır.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 11. Meta Etiketler -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">11. Meta Etiketler</h2>
+      <p class="text-lg mb-4">
+        <code>&lt;meta&gt;</code> etiketleri, sayfa hakkında bilgi sağlar. Örneğin, karakter seti, açıklama.
+      </p>
+      <pre><code>&lt;meta charset="UTF-8"&gt;
+&lt;meta name="description" content="Web sitesi"&gt;</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>charset</code>: Karakter kodlamasını tanımlar.</li>
+          <li><code>name="description"</code>: Arama motorları için açıklama.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-html-11')">Quiz'i Aç</button>
+      <div id="quiz-html-11" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Karakter kodlamasını tanımlayan öznitelik nedir?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-html-11" value="a"> name</label><br>
+          <label><input type="radio" name="quiz-html-11" value="b"> charset</label><br>
+          <label><input type="radio" name="quiz-html-11" value="c"> content</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-html-11', 'b', 'Doğru! charset karakter kodlamasını tanımlar.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 12. Temel Olaylar -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">12. Temel Olaylar</h2>
+      <p class="text-lg mb-4">
+        HTML'de olaylar, kullanıcı etkileşimlerini yakalar. Örneğin, <code>onclick</code>.
+      </p>
+      <pre><code>&lt;button onclick="alert('Tıklandı!')"&gt;Tıkla&lt;/button&gt;</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>onclick</code>: Tıklama olayını yakalar.</li>
+          <li>JavaScript ile dinamik davranış eklenir.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-html-12')">Quiz'i Aç</button>
+      <div id="quiz-html-12" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Tıklama olayını yakalamak için hangi öznitelik kullanılır?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-html-12" value="a"> onhover</label><br>
+          <label><input type="radio" name="quiz-html-12" value="b"> onclick</label><br>
+          <label><input type="radio" name="quiz-html-12" value="c"> onsubmit</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-html-12', 'b', 'Doğru! onclick tıklama olayını yakalar.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- Orta Düzey Konular Başlığı -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">Orta Düzey Konular</h2>
+      <p class="text-lg mb-4">
+        Bu bölümde, HTML'nin daha gelişmiş özelliklerini ve HTML5'in sunduğu modern imkanları öğreneceksiniz.
+      </p>
+    </section>
+
+    <!-- 13. HTML5 Canvas -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">13. HTML5 Canvas</h2>
+      <p class="text-lg mb-4">
+        <code>&lt;canvas&gt;</code> etiketi, JavaScript ile grafik çizimi için kullanılır. Oyunlar veya veri görselleştirme için idealdir.
+      </p>
+      <pre><code>&lt;canvas id="myCanvas" width="200" height="100"&gt;&lt;/canvas&gt;
+&lt;script&gt;
+  var canvas = document.getElementById("myCanvas");
+  var ctx = canvas.getContext("2d");
+  ctx.fillStyle = "blue";
+  ctx.fillRect(50, 25, 100, 50);
+&lt;/script&gt;</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>&lt;canvas&gt;</code>: Çizim alanı oluşturur.</li>
+          <li><code>getContext("2d")</code>: 2D çizim bağlamını sağlar.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-html-13')">Quiz'i Aç</button>
+      <div id="quiz-html-13" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Canvas’ta 2D çizim için hangi yöntem kullanılır?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-html-13" value="a"> getContext("3d")</label><br>
+          <label><input type="radio" name="quiz-html-13" value="b"> getContext("2d")</label><br>
+          <label><input type="radio" name="quiz-html-13" value="c"> drawCanvas()</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-html-13', 'b', 'Doğru! getContext(\\\'2d\\\') 2D çizim sağlar.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 14. Veri Öznitelikleri -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">14. Veri Öznitelikleri</h2>
+      <p class="text-lg mb-4">
+        <code>data-*</code> öznitelikleri, özel veri saklamak için kullanılır. JavaScript ile erişilebilir.
+      </p>
+      <pre><code>&lt;div data-rol="admin"&gt;Kullanıcı&lt;/div&gt;
+&lt;script&gt;
+  var element = document.querySelector('[data-rol]');
+  console.log(element.dataset.rol); // admin
+&lt;/script&gt;</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>data-*</code>: Özel veri özniteliği tanımlar.</li>
+          <li><code>dataset</code>: JavaScript’te veriye erişir.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-html-14')">Quiz'i Aç</button>
+      <div id="quiz-html-14" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Veri özniteliği nasıl başlar?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-html-14" value="a"> info-</label><br>
+          <label><input type="radio" name="quiz-html-14" value="b"> attr-</label><br>
+          <label><input type="radio" name="quiz-html-14" value="c"> data-</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-html-14', 'c', 'Doğru! Veri öznitelikleri data- ile başlar.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 15. Mikro Veri -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">15. Mikro Veri</h2>
+      <p class="text-lg mb-4">
+        Mikro veri, arama motorlarının içeriği anlamasını sağlar. <code>itemscope</code> ve <code>itemprop</code> kullanılır.
+      </p>
+      <pre><code>&lt;div itemscope itemtype="http://schema.org/Person"&gt;
+  &lt;span itemprop="name"&gt;Ahmet Yılmaz&lt;/span&gt;
+  &lt;span itemprop="jobTitle"&gt;Geliştirici&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>itemscope</code>: Mikro veri bloğunu tanımlar.</li>
+          <li><code>itemprop</code>: Özelliği belirtir.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-html-15')">Quiz'i Aç</button>
+      <div id="quiz-html-15" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Mikro veri bloğunu tanımlayan öznitelik nedir?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-html-15" value="a"> itemprop</label><br>
+          <label><input type="radio" name="quiz-html-15" value="b"> itemscope</label><br>
+          <label><input type="radio" name="quiz-html-15" value="c"> itemtype</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-html-15', 'b', 'Doğru! itemscope mikro veri bloğunu tanımlar.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 16. Web Storage -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">16. Web Storage</h2>
+      <p class="text-lg mb-4">
+        Web Storage, tarayıcıda veri saklamak için kullanılır (<code>localStorage</code>, <code>sessionStorage</code>).
+      </p>
+      <pre><code>&lt;button onclick="saveData()"&gt;Kaydet&lt;/button&gt;
+&lt;script&gt;
+  function saveData() {
+    localStorage.setItem("kullanici", "Ahmet");
+    alert("Kaydedildi: " + localStorage.getItem("kullanici"));
+  }
+&lt;/script&gt;</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>localStorage</code>: Kalıcı veri saklar.</li>
+          <li><code>sessionStorage</code>: Sekme kapandığında silinir.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-html-16')">Quiz'i Aç</button>
+      <div id="quiz-html-16" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Kalıcı veri saklamak için hangi nesne kullanılır?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-html-16" value="a"> sessionStorage</label><br>
+          <label><input type="radio" name="quiz-html-16" value="b"> cookie</label><br>
+          <label><input type="radio" name="quiz-html-16" value="c"> localStorage</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-html-16', 'c', 'Doğru! localStorage kalıcı veri saklar.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 17. Erişilebilirlik (ARIA) -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">17. Erişilebilirlik (ARIA)</h2>
+      <p class="text-lg mb-4">
+        ARIA (Accessible Rich Internet Applications), engelli kullanıcılar için erişilebilirlik sağlar.
+      </p>
+      <pre><code>&lt;button aria-label="Kapat"&gt;X&lt;/button&gt;
+&lt;div role="alert"&gt;Hata mesajı&lt;/div&gt;</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>aria-label</code>: Ekran okuyucular için açıklama.</li>
+          <li><code>role</code>: Elemanın işlevini tanımlar.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-html-17')">Quiz'i Aç</button>
+      <div id="quiz-html-17" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Ekran okuyucular için açıklama sağlayan öznitelik nedir?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-html-17" value="a"> role</label><br>
+          <label><input type="radio" name="quiz-html-17" value="b"> aria-label</label><br>
+          <label><input type="radio" name="quiz-html-17" value="c"> alt</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz; 'quiz-html-17', 'b', 'Doğru! aria-label ekran okuyucular için açıklama sağlar.'">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-gray-800 text-white text-center py-6">
+    <p>© 2025 Yazılım Öğreniyorum - Bilişim Haftası İçin Hazırlandı</p>
+  </footer>
+
+  <script>
+    function toggleQuiz(quizId) {
+      const quiz = document.getElementById(quizId);
+      if (quiz) {
+        quiz.classList.toggle('active');
+      } else {
+        console.error('Quiz ID bulunamadı: ' + quizId);
+      }
+    }
+
+    function checkQuiz(quizId, correctAnswer, message) {
+      const quiz = document.getElementById(quizId);
+      if (!quiz) {
+        console.error('Quiz ID bulunamadı: ' + quizId);
+        alert('Hata: Quiz bulunamadı.');
+        return;
+      }
+      const selected = quiz.querySelector(`input[name="${quizId}"]:checked`);
+      if (selected) {
+        if (selected.value === correctAnswer) {
+          alert(message);
+        } else {
+          alert('Yanlış! Lütfen tekrar deneyin.');
+        }
+      } else {
+        alert('Lütfen bir seçenek seçin.');
+      }
+    }
+
+    document.querySelectorAll('nav a').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.location.href = this.getAttribute('href');
+      });
+    });
+  </script>
+</body>
+</html>

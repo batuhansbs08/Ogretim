@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <拍摄 charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Yazılım öğrenme rehberi: Python, Java, HTML, CSS ve C# dersleri">
+  <title>Yazılım Öğreniyorum</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fadeIn {
+      animation: fadeIn 0.5s ease-out;
+    }
+    .hover-scale:hover {
+      transform: scale(1.05);
+      transition: transform 0.3s ease;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 font-sans text-gray-800">
+  <header class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-16 text-center">
+    <h1 class="text-4xl md:text-6xl font-bold animate-fadeIn">Yazılım Öğrenmeye Hoş Geldiniz!</h1>
+    <p class="text-lg md:text-2xl mt-4 animate-fadeIn">Python, Java, HTML, CSS ve C# ile programlamaya adım atın.</p>
+    <p class="text-md md:text-lg mt-2">Başlangıç seviyesinden orta seviyeye, adım adım öğrenin!</p>
+    <nav role="navigation" class="mt-10">
+      <ul class="flex flex-wrap justify-center gap-4">
+        <li><a href="python.html" class="bg-indigo-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-900 hover-scale">Python</a></li>
+        <li><a href="java.html" class="bg-indigo-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-900 hover-scale">Java</a></li>
+        <li><a href="html.html" class="bg-indigo-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-900 hover-scale">HTML</a></li>
+        <li><a href="css.html" class="bg-indigo-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-900 hover-scale">CSS</a></li>
+        <li><a href="csharp.html" class="bg-indigo-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-900 hover-scale">C#</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="max-w-4xl mx-auto py-12 px-4">
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">Neden Yazılım Öğrenmelisiniz?</h2>
+      <p class="text-lg mb-4">
+        Yazılım, günümüz dünyasında en değerli becerilerden biridir. Web geliştirme, veri analizi, oyun tasarımı veya yapay zeka gibi alanlarda kariyer yapabilirsiniz. Bu platform, sıfırdan başlayarak Python, Java, HTML, CSS ve C# gibi popüler dillerle tanışmanızı sağlar.
+      </p>
+      <p class="text-lg">
+        Her dil için özel hazırlanmış dersler, kod örnekleri ve quizlerle öğrenme süreciniz keyifli ve etkili olacak. Hemen bir dil seçin ve başlayın!
+      </p>
+    </section>
+
+    <section class="bg-white p-8 rounded-xl shadow-lg animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">Kodlamaya Başlamak İçin Yapmanız Gerekenler</h2>
+      <p class="text-lg mb-4">
+        Kodlamaya başlamak için birkaç temel adıma ihtiyacınız var:
+      </p>
+      <ul class="list-disc pl-6 mb-4">
+        <li><strong>Doğru Dili Seçin:</strong> Hedeflerinize uygun bir dil seçin. Örneğin, web geliştirme için HTML/CSS, oyun geliştirme için C#, veri analizi için Python.</li>
+        <li><strong>Gerekli Araçları Kurun:</strong> Her dil için bir kod editörü veya IDE (Entegre Geliştirme Ortamı) gereklidir. Aşağıda öneriler bulabilirsiniz.</li>
+        <li><strong>Pratik Yapın:</strong> Küçük projeler yaparak öğrendiklerinizi uygulayın. Örneğin, bir hesap makinesi veya basit bir web sayfası.</li>
+        <li><strong>Kaynakları Kullanın:</strong> Online dersler, dökümanlar ve topluluklar (örneğin, Stack Overflow) öğrenmenizi hızlandırır.</li>
+        <li><strong>Sabırlı Olun:</strong> Hatalar normaldir! Her hata, öğrenme sürecinin bir parçasıdır.</li>
+      </ul>
+      <h3 class="text-2xl font-semibold text-gray-800 mb-2">Hangi Dil İçin Hangi Programları Kullanabilirsiniz?</h3>
+      <p class="text-lg mb-4">
+        Her programlama dili için önerilen araçlar:
+      </p>
+      <ul class="list-disc pl-6">
+        <li><strong>Python:</strong>
+          <ul class="list-circle pl-6">
+            <li><strong>Visual Studio Code:</strong> Hafif, eklenti destekli bir editör. Python eklentisiyle güçlü.</li>
+            <li><strong>PyCharm:</strong> Python'a özel, profesyonel bir IDE.</li>
+            <li><strong>Jupyter Notebook:</strong> Veri analizi ve interaktif kodlama için ideal.</li>
+          </ul>
+        </li>
+        <li><strong>Java:</strong>
+          <ul class="list-circle pl-6">
+            <li><strong>IntelliJ IDEA:</strong> Java için en popüler IDE, güçlü özellikler sunar.</li>
+            <li><strong>Eclipse:</strong> Ücretsiz, açık kaynaklı bir alternatif.</li>
+            <li><strong>Visual Studio Code:</strong> Java eklentileriyle kullanılabilir.</li>
+          </ul>
+        </li>
+        <li><strong>HTML/CSS:</strong>
+          <ul class="list-circle pl-6">
+            <li><strong>Visual Studio Code:</strong> HTML/CSS için hızlı ve özelleştirilebilir.</li>
+            <li><strong>Sublime Text:</strong> Hafif ve hızlı bir editör.</li>
+            <li><strong>Brackets:</strong> Web geliştirme için özel özellikler sunar.</li>
+          </ul>
+        </li>
+        <li><strong>C#:</strong>
+          <ul class="list-circle pl-6">
+            <li><strong>Visual Studio:</strong> C# için en kapsamlı IDE, özellikle .NET projeleri için.</li>
+            <li><strong>Visual Studio Code:</strong> C# eklentileriyle hafif bir alternatif.</li>
+            <li><strong>Rider:</strong> JetBrains'in C# için güçlü IDE'si.</li>
+          </ul>
+        </li>
+      </ul>
+      <p class="text-lg mt-4">
+        Bu araçları kurduktan sonra, derslerimizdeki örnekleri deneyerek öğrenmeye başlayabilirsiniz!
+      </p>
+    </section>
+  </main>
+
+  <footer class="bg-gray-800 text-white text-center py-6">
+    <p>© 2025 Yazılım Öğreniyorum - Bilişim Haftası İçin Hazırlandı</p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('nav a').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.location.href = this.getAttribute('href');
+      });
+    });
+  </script>
+</body>
+</html>

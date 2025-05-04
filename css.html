@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CSS başlangıç ve orta düzey dersleri">
+  <title>CSS Dersleri - Yazılım Öğreniyorum</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fadeIn {
+      animation: fadeIn 0.5s ease-out;
+    }
+    pre {
+      background-color: #2d2d2d;
+      color: #f8f8f2;
+      padding: 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-size: 0.95rem;
+    }
+    .quiz-container {
+      display: none;
+      transition: all 0.3s ease;
+    }
+    .quiz-container.active {
+      display: block;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 font-sans text-gray-800">
+  <header class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-12 text-center">
+    <h1 class="text-4xl md:text-5xl font-bold animate-fadeIn">CSS Dersleri</h1>
+    <p class="text-lg md:text-xl mt-4 animate-fadeIn">Başlangıç ve Orta Seviye: Web Tasarımına Giriş</p>
+    <nav role="navigation" class="mt-8">
+      <ul class="flex flex-wrap justify-center gap-4">
+        <li><a href="index.html" class="bg-indigo-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-900">Ana Sayfa</a></li>
+        <li><a href="html.html" class="bg-indigo-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-900">HTML</a></li>
+        <li><a href="python.html" class="bg-indigo-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-900">Python</a></li>
+        <li><a href="java.html" class="bg-indigo-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-900">Java</a></li>
+        <li><a href="csharp.html" class="bg-indigo-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-900">C#</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="max-w-4xl mx-auto py-12 px-4">
+    <!-- Başlangıç Seviyesi Konular -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">Başlangıç Seviyesi Konular</h2>
+      <p class="text-lg mb-4">
+        Bu bölümde, CSS ile web sayfalarını biçimlendirmenin temellerini öğreneceksiniz.
+      </p>
+    </section>
+
+    <!-- 1. CSS'ye Giriş -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">1. CSS'ye Giriş</h2>
+      <p class="text-lg mb-4">
+        CSS, web sayfalarının görünümünü kontrol eder. Temel söz dizimi seçici ve özelliklerden oluşur.
+      </p>
+      <pre><code>p {
+    color: blue;
+}</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>p</code>: Seçici, paragraf etiketini hedefler.</li>
+          <li><code>color</code>: Metin rengini ayarlar.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-css-1')">Quiz'i Aç</button>
+      <div id="quiz-css-1" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: CSS’de metin rengini ayarlayan özellik nedir?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-css-1" value="a"> font-size</label><br>
+          <label><input type="radio" name="quiz-css-1" value="b"> color</label><br>
+          <label><input type="radio" name="quiz-css-1" value="c"> background</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-css-1', 'b', 'Doğru! color metin rengini ayarlar.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 2. Seçiciler -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">2. Seçiciler</h2>
+      <p class="text-lg mb-4">
+        Seçiciler, hangi HTML elemanlarının biçimlendirileceğini belirler.
+      </p>
+      <pre><code>.sinif {
+    font-weight: bold;
+}
+#id {
+    color: red;
+}</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>.sinif</code>: Sınıf seçicisi.</li>
+          <li><code>#id</code>: ID seçicisi.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-css-2')">Quiz'i Aç</button>
+      <div id="quiz-css-2" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Sınıf seçicisi nasıl başlar?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-css-2" value="a"> #</label><br>
+          <label><input type="radio" name="quiz-css-2" value="b"> .</label><br>
+          <label><input type="radio" name="quiz-css-2" value="c"> *</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-css-2', 'b', 'Doğru! Sınıf seçicisi . ile başlar.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 3. Renk ve Arka Plan -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">3. Renk ve Arka Plan</h2>
+      <p class="text-lg mb-4">
+        <code>color</code> ve <code>background</code> özellikleri görünümü değiştirir.
+      </p>
+      <pre><code>div {
+    background-color: #f0f0f0;
+    color: #333;
+}</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>background-color</code>: Arka plan rengi.</li>
+          <li><code>color</code>: Metin rengi.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-css-3')">Quiz'i Aç</button>
+      <div id="quiz-css-3" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Arka plan rengini ayarlayan özellik nedir?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-css-3" value="a"> color</label><br>
+          <label><input type="radio" name="quiz-css-3" value="b"> background-color</label><br>
+          <label><input type="radio" name="quiz-css-3" value="c"> border</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-css-3', 'b', 'Doğru! background-color arka plan rengini ayarlar.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 4. Yazı Tipi ve Metin -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">4. Yazı Tipi ve Metin</h2>
+      <p class="text-lg mb-4">
+        Yazı tipi ve metin özellikleri: <code>font-family</code>, <code>text-align</code>.
+      </p>
+      <pre><code>p {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>font-family</code>: Yazı tipini belirler.</li>
+          <li><code>text-align</code>: Metin hizalamasını ayarlar.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-css-4')">Quiz'i Aç</button>
+      <div id="quiz-css-4" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Metin hizalamasını ayarlayan özellik nedir?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-css-4" value="a"> font-family</label><br>
+          <label><input type="radio" name="quiz-css-4" value="b"> text-align</label><br>
+          <label><input type="radio" name="quiz-css-4" value="c"> font-size</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-css-4', 'b', 'Doğru! text-align metin hizalamasını ayarlar.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 5. Kenar Çizgileri -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">5. Kenar Çizgileri</h2>
+      <p class="text-lg mb-4">
+        <code>border</code> özelliği, elemanlara çerçeve ekler.
+      </p>
+      <pre><code>div {
+    border: 1px solid black;
+}</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>border</code>: Kalınlık, stil ve renk tanımlar.</li>
+          <li>Örnek: <code>solid</code>, <code>dashed</code>.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-css-5')">Quiz'i Aç</button>
+      <div id="quiz-css-5" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Çerçeve eklemek için hangi özellik kullanılır?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-css-5" value="a"> margin</label><br>
+          <label><input type="radio" name="quiz-css-5" value="b"> border</label><br>
+          <label><input type="radio" name="quiz-css-5" value="c"> padding</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-css-5', 'b', 'Doğru! border çerçeve ekler.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 6. Margin ve Padding -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">6. Margin ve Padding</h2>
+      <p class="text-lg mb-4">
+        <code>margin</code> dış boşluk, <code>padding</code> iç boşluk sağlar.
+      </p>
+      <pre><code>div {
+    margin: 10px;
+    padding: 15px;
+}</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>margin</code>: Elemanlar arası boşluk.</li>
+          <li><code>padding</code>: İçerik ile kenar arası boşluk.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-css-6')">Quiz'i Aç</button>
+      <div id="quiz-css-6" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: İç boşluk için hangi özellik kullanılır?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-css-6" value="a"> margin</label><br>
+          <label><input type="radio" name="quiz-css-6" value="b"> padding</label><br>
+          <label><input type="radio" name="quiz-css-6" value="c"> border</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-css-6', 'b', 'Doğru! padding iç boşluk sağlar.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 7. Kutu Modeli -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">7. Kutu Modeli</h2>
+      <p class="text-lg mb-4">
+        Kutu modeli, elemanların boyutlarını tanımlar.
+      </p>
+      <pre><code>div {
+    width: 200px;
+    height: 100px;
+    box-sizing: border-box;
+}</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>box-sizing</code>: Boyut hesaplama yöntemini belirler.</li>
+          <li>İçerik, padding, border içerir.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-css-7')">Quiz'i Aç</button>
+      <div id="quiz-css-7" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Boyut hesaplama yöntemini belirleyen özellik nedir?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-css-7" value="a"> width</label><br>
+          <label><input type="radio" name="quiz-css-7" value="b"> box-sizing</label><br>
+          <label><input type="radio" name="quiz-css-7" value="c"> height</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-css-7', 'b', 'Doğru! box-sizing boyut hesaplama yöntemini belirler.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 8. Display Özelliği -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">8. Display Özelliği</h2>
+      <p class="text-lg mb-4">
+        <code>display</code>, elemanların yerleşim türünü belirler.
+      </p>
+      <pre><code>span {
+    display: block;
+}</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>block</code>: Yeni satırda başlar.</li>
+          <li><code>inline</code>: Aynı satırda kalır.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-css-8')">Quiz'i Aç</button>
+      <div id="quiz-css-8" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Yeni satırda başlayan yerleşim türü nedir?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-css-8" value="a"> inline</label><br>
+          <label><input type="radio" name="quiz-css-8" value="b"> block</label><br>
+          <label><input type="radio" name="quiz-css-8" value="c"> flex</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-css-8', 'b', 'Doğru! block yeni satırda başlar.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 9. Pozisyonlandırma -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">9. Pozisyonlandırma</h2>
+      <p class="text-lg mb-4">
+        <code>position</code>, elemanların yerleşimini kontrol eder.
+      </p>
+      <pre><code>div {
+    position: absolute;
+    top: 10px;
+}</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>absolute</code>: Ebeveyne göre konumlanır.</li>
+          <li><code>relative</code>: Normal konumuna göre ayarlanır.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-css-9')">Quiz'i Aç</button>
+      <div id="quiz-css-9" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Ebeveyne göre konumlandırma için hangi değer kullanılır?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-css-9" value="a"> relative</label><br>
+          <label><input type="radio" name="quiz-css-9" value="b"> absolute</label><br>
+          <label><input type="radio" name="quiz-css-9" value="c"> fixed</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-css-9', 'b', 'Doğru! absolute ebeveyne göre konumlandırır.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 10. Float ve Clear -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">10. Float ve Clear</h2>
+      <p class="text-lg mb-4">
+        <code>float</code>, elemanları sola veya sağa kaydırır.
+      </p>
+      <pre><code>img {
+    float: left;
+}
+div {
+    clear: both;
+}</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>float</code>: Elemanı kaydırır.</li>
+          <li><code>clear</code>: Kayan elemanları temizler.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-css-10')">Quiz'i Aç</button>
+      <div id="quiz-css-10" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Kayan elemanları temizlemek için hangi özellik kullanılır?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-css-10" value="a"> float</label><br>
+          <label><input type="radio" name="quiz-css-10" value="b"> clear</label><br>
+          <label><input type="radio" name="quiz-css-10" value="c"> position</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-css-10', 'b', 'Doğru! clear kayan elemanları temizler.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 11. Bağlantı Stilleri -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">11. Bağlantı Stilleri</h2>
+      <p class="text-lg mb-4">
+        Bağlantılar, <code>a</code> etiketi ile biçimlendirilir.
+      </p>
+      <pre><code>a:hover {
+    color: blue;
+    text-decoration: underline;
+}</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>:hover</code>: Fare üzerine geldiğinde stil uygular.</li>
+          <li><code>text-decoration</code>: Alt çizgi gibi stiller ekler.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-css-11')">Quiz'i Aç</button>
+      <div id="quiz-css-11" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Fare üzerine geldiğinde stil uygulayan durum nedir?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-css-11" value="a"> :active</label><br>
+          <label><input type="radio" name="quiz-css-11" value="b"> :hover</label><br>
+          <label><input type="radio" name="quiz-css-11" value="c"> :focus</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-css-11', 'b', 'Doğru! :hover fare üzerine geldiğinde stil uygular.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 12. Liste Stilleri -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">12. Liste Stilleri</h2>
+      <p class="text-lg mb-4">
+        <code>list-style</code>, liste işaretlerini biçimlendirir.
+      </p>
+      <pre><code>ul {
+    list-style-type: square;
+}</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>list-style-type</code>: İşaret türünü belirler.</li>
+          <li>Örnek: <code>disc</code>, <code>square</code>.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-css-12')">Quiz'i Aç</button>
+      <div id="quiz-css-12" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Liste işaretini belirleyen özellik nedir?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-css-12" value="a"> list-style-type</label><br>
+          <label><input type="radio" name="quiz-css-12" value="b"> list-type</label><br>
+          <label><input type="radio" name="quiz-css-12" value="c"> list-decoration</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-css-12', 'a', 'Doğru! list-style-type liste işaretini belirler.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- Orta Düzey Konular -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">Orta Düzey Konular</h2>
+      <p class="text-lg mb-4">
+        Bu bölümde, CSS’nin modern ve gelişmiş özelliklerini keşfedeceksiniz.
+      </p>
+    </section>
+
+    <!-- 13. Flexbox -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">13. Flexbox</h2>
+      <p class="text-lg mb-4">
+        Flexbox, esnek düzenler oluşturur.
+      </p>
+      <pre><code>.container {
+    display: flex;
+    justify-content: center;
+}</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>display: flex</code>: Esnek kutu düzeni.</li>
+          <li><code>justify-content</code>: Yatay hizalamayı ayarlar.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-css-13')">Quiz'i Aç</button>
+      <div id="quiz-css-13" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Flexbox düzeni için hangi özellik kullanılır?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-css-13" value="a"> display: grid</label><br>
+          <label><input type="radio" name="quiz-css-13" value="b"> display: flex</label><br>
+          <label><input type="radio" name="quiz-css-13" value="c"> display: block</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-css-13', 'b', 'Doğru! display: flex flexbox düzeni sağlar.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 14. CSS Grid -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">14. CSS Grid</h2>
+      <p class="text-lg mb-4">
+        Grid, iki boyutlu düzenler oluşturur.
+      </p>
+      <pre><code>.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>display: grid</code>: Izgara düzeni.</li>
+          <li><code>grid-template-columns</code>: Sütun boyutlarını tanımlar.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-css-14')">Quiz'i Aç</button>
+      <div id="quiz-css-14" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Izgara düzeni için hangi özellik kullanılır?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-css-14" value="a"> display: flex</label><br>
+          <label><input type="radio" name="quiz-css-14" value="b"> display: grid</label><br>
+          <label><input type="radio" name="quiz-css-14" value="c"> display: inline</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-css-14', 'b', 'Doğru! display: grid izgara düzeni sağlar.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 15. Geçişler -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">15. Geçişler</h2>
+      <p class="text-lg mb-4">
+        <code>transition</code>, stil değişikliklerini yumuşatır.
+      </p>
+      <pre><code>button {
+    transition: background-color 0.3s;
+}
+button:hover {
+    background-color: blue;
+}</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>transition</code>: Özellik, süre ve zamanlama tanımlar.</li>
+          <li>Hareketli efektler için kullanılır.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-css-15')">Quiz'i Aç</button>
+      <div id="quiz-css-15" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Stil değişikliklerini yumuşatan özellik nedir?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-css-15" value="a"> animation</label><br>
+          <label><input type="radio" name="quiz-css-15" value="b"> transition</label><br>
+          <label><input type="radio" name="quiz-css-15" value="c"> transform</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-css-15', 'b', 'Doğru! transition stil değişikliklerini yumuşatır.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 16. Dönüşümler -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">16. Dönüşümler</h2>
+      <p class="text-lg mb-4">
+        <code>transform</code>, elemanları döndürür, ölçekler veya kaydırır.
+      </p>
+      <pre><code>div {
+    transform: rotate(45deg);
+}</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>rotate</code>: Derece cinsinden döndürür.</li>
+          <li><code>scale</code>: Boyutları değiştirir.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-css-16')">Quiz'i Aç</button>
+      <div id="quiz-css-16" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Elemanları döndüren dönüşüm fonksiyonu nedir?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-css-16" value="a"> scale</label><br>
+          <label><input type="radio" name="quiz-css-16" value="b"> rotate</label><br>
+          <label><input type="radio" name="quiz-css-16" value="c"> translate</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-css-16', 'b', 'Doğru! rotate elemanları döndürür.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+
+    <!-- 17. CSS Animasyonları -->
+    <section class="bg-white p-8 rounded-xl shadow-lg mb-8 animate-fadeIn">
+      <h2 class="text-3xl font-bold text-indigo-600 mb-4">17. CSS Animasyonları</h2>
+      <p class="text-lg mb-4">
+        <code>animation</code>, özel animasyonlar oluşturur.
+      </p>
+      <pre><code>@keyframes move {
+    from { transform: translateX(0); }
+    to { transform: translateX(100px); }
+}
+div {
+    animation: move 2s infinite;
+}</code></pre>
+      <p class="mt-4">
+        <ul class="list-disc pl-6">
+          <li><code>@keyframes</code>: Animasyon adımlarını tanımlar.</li>
+          <li><code>animation</code>: Süre, tekrar gibi ayarları yapar.</li>
+        </ul>
+      </p>
+      <button class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700" onclick="toggleQuiz('quiz-css-17')">Quiz'i Aç</button>
+      <div id="quiz-css-17" class="quiz-container mt-4 p-4 bg-gray-50 rounded-lg">
+        <p class="font-semibold">Soru: Animasyon adımlarını tanımlayan yapı nedir?</p>
+        <div class="space-y-2">
+          <label><input type="radio" name="quiz-css-17" value="a"> animation</label><br>
+          <label><input type="radio" name="quiz-css-17" value="b"> @keyframes</label><br>
+          <label><input type="radio" name="quiz-css-17" value="c"> transform</label>
+        </div>
+        <button class="mt-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700" onclick="checkQuiz('quiz-css-17', 'b', 'Doğru! @keyframes animasyon adımlarını tanımlar.')">Cevabı Kontrol Et</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-gray-800 text-white text-center py-6">
+    <p>© 2025 Yazılım Öğreniyorum - Bilişim Haftası İçin Hazırlandı</p>
+  </footer>
+
+  <script>
+    function toggleQuiz(quizId) {
+      const quiz = document.getElementById(quizId);
+      if (quiz) {
+        quiz.classList.toggle('active');
+      } else {
+        console.error('Quiz ID bulunamadı: ' + quizId);
+      }
+    }
+
+    function checkQuiz(quizId, correctAnswer, message) {
+      const quiz = document.getElementById(quizId);
+      if (!quiz) {
+        console.error('Quiz ID bulunamadı: ' + quizId);
+        alert('Hata: Quiz bulunamadı.');
+        return;
+      }
+      const selected = quiz.querySelector(`input[name="${quizId}"]:checked`);
+      if (selected) {
+        if (selected.value === correctAnswer) {
+          alert(message);
+        } else {
+          alert('Yanlış! Lütfen tekrar deneyin.');
+        }
+      } else {
+        alert('Lütfen bir seçenek seçin.');
+      }
+    }
+
+    document.querySelectorAll('nav a').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.location.href = this.getAttribute('href');
+      });
+    });
+  </script>
+</body>
+</html>
